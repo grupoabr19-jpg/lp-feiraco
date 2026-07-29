@@ -2,7 +2,6 @@
 
 import { FormEvent, useEffect, useState } from 'react';
 import { event as eventConfig } from '@/config/event';
-import { TurnstileField } from './TurnstileField';
 
 const profiles = [
   'Cliente final — construindo ou reformando',
@@ -29,7 +28,6 @@ export function RegistrationForm() {
   const [message, setMessage] = useState('');
   const [profile, setProfile] = useState('');
   const [interests, setInterests] = useState<string[]>([]);
-  const [turnstileToken, setTurnstileToken] = useState('');
   const apiUrl = process.env.NEXT_PUBLIC_API_URL ?? 'http://localhost:3333';
   const whatsappNumber = process.env.NEXT_PUBLIC_WHATSAPP_NUMBER?.replace(/\D/g, '') ?? '';
 
@@ -129,7 +127,6 @@ export function RegistrationForm() {
           ...campaign,
           referrer: document.referrer || null,
           landingPageUrl: window.location.href,
-          turnstileToken: turnstileToken || undefined,
         }),
       });
       const result = await response.json();
@@ -242,7 +239,6 @@ export function RegistrationForm() {
         </label>
       </div>
       <label className="honeypot" aria-hidden="true">Empresa<input name="company" tabIndex={-1} autoComplete="off" /></label>
-      <TurnstileField onToken={setTurnstileToken} />
       <label className="consent"><input type="checkbox" name="consent" required /><span>Concordo em receber informações do Grupo ABR pelo WhatsApp. Posso cancelar a qualquer momento. Consulte a <a href="/privacidade" target="_blank">Política de Privacidade</a>.</span></label>
       {message && <p className="form-error" role="alert">{message}</p>}
       <button className="button button-primary button-wide" type="submit" disabled={loading}>{loading ? 'Registrando...' : 'Quero participar do FeirAço'}</button>

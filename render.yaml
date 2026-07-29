@@ -16,8 +16,6 @@ services:
         sync: false
       - key: NEXT_PUBLIC_WHATSAPP_NUMBER
         value: 553597709232
-      - key: NEXT_PUBLIC_TURNSTILE_SITE_KEY
-        sync: false
 
   - type: web
     name: feiraco-api
@@ -35,8 +33,6 @@ services:
       - key: DIRECT_DATABASE_URL
         sync: false
       - key: FRONTEND_URL
-        sync: false
-      - key: TURNSTILE_SECRET_KEY
         sync: false
       - key: IP_HASH_SALT
         generateValue: true

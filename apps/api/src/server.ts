@@ -24,7 +24,6 @@ const leadSchema = z.object({
   city: z.string().trim().min(2).max(100),
   profile: z.string().trim().min(2).max(120),
   consent: z.literal(true),
-  turnstileToken: z.string().optional(),
   honeypot: z.string().max(0).optional().default(''),
   source: z.string().trim().max(80).optional().default('landing-page'),
   utmSource: optionalText,
@@ -59,20 +58,6 @@ function hashIp(ip: string): string {
     .digest('hex');
 }
 
-async function validateTurnstile(token: string | undefined, ip: string): Promise<boolean> {
-  const secret = process.env.TURNSTILE_SECRET_KEY;
-  if (!secret) return true;
-  if (!token) return false;
-
-  const body = new URLSearchParams({ secret, response: token, remoteip: ip });
-  const response = await fetch('https://challenges.cloudflare.com/turnstile/v0/siteverify', {
-    method: 'POST',
-    body,
-  });
-  const result = (await response.json()) as { success?: boolean };
-  return result.success === true;
-}
-
 app.get('/api/v1/health', async () => ({ status: 'ok' }));
 
 app.get('/api/v1/db-health', async (_request, reply) => {
@@ -104,11 +89,6 @@ app.post('/api/v1/leads', { config: { rateLimit: { max: 8, timeWindow: '10 minut
   const payload = parsed.data;
   if (payload.honeypot) {
     return reply.status(400).send({ success: false, message: 'Não foi possível concluir o cadastro.' });
-  }
-
-  const turnstileValid = await validateTurnstile(payload.turnstileToken, request.ip);
-  if (!turnstileValid) {
-    return reply.status(400).send({ success: false, message: 'Validação de segurança não concluída.' });
   }
 
   let phoneE164: string;
