@@ -1,8 +1,8 @@
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'Política de Privacidade | 3º FeirAÇO Grupo ABR',
-  description: 'Como os dados da inscrição do 3º FeirAÇO Grupo ABR são tratados.',
+  title: 'Política de Privacidade | 3º FeirAço Grupo ABR',
+  description: 'Como os dados da inscrição do 3º FeirAço Grupo ABR são tratados.',
 };
 
 export default function PrivacyPage() {
@@ -12,7 +12,7 @@ export default function PrivacyPage() {
         <article className="legal-card">
           <p className="eyebrow">Privacidade e transparência</p>
           <h1>Política de Privacidade</h1>
-          <p>Esta política descreve o tratamento dos dados enviados na inscrição para o 3º FeirAÇO Grupo ABR.</p>
+          <p>Esta política descreve o tratamento dos dados enviados na inscrição para o 3º FeirAço Grupo ABR.</p>
 
           <h2>Dados coletados</h2>
           <p>Coletamos nome, WhatsApp, cidade, consentimento, perfil e interesses opcionais, além de dados técnicos e de campanha necessários para segurança e medição da inscrição.</p>

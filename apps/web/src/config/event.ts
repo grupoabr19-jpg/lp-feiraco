@@ -1,5 +1,5 @@
 export const event = {
-  name: '3º FeirAÇO Grupo ABR',
+  name: '3º FeirAço Grupo ABR',
   dateLabel: '12 de setembro de 2026',
   dateISO: '2026-09-12',
   startTime: '08:00',

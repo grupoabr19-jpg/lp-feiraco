@@ -174,13 +174,13 @@ export function RegistrationForm() {
       <div className="form-success" aria-live="polite">
         <span className="success-mark">✓</span>
         <p className="eyebrow">Inscrição registrada</p>
-        <h3>Sua presença já entrou no radar.</h3>
+        <h3>Sua presença já entrou no radar</h3>
         <p>Salve a data: sábado, 12 de setembro, das 8h às 12h.</p>
         <p><strong>Local:</strong> {eventConfig.location}, {eventConfig.address}.</p>
         {message && <p className="form-note" role="status">{message}</p>}
         <div className="success-actions">
           {whatsappNumber
-            ? <a className="button button-primary" href={`https://wa.me/${whatsappNumber}?text=${encodeURIComponent('Olá! Acabei de me cadastrar para participar do 3º FeirAÇO Grupo ABR, no dia 12 de setembro. Gostaria de receber mais informações sobre o evento.')}`} target="_blank" rel="noreferrer">Falar no WhatsApp</a>
+            ? <a className="button button-primary" href={`https://wa.me/${whatsappNumber}?text=${encodeURIComponent('Olá! Acabei de me cadastrar para participar do 3º FeirAço Grupo ABR, no dia 12 de setembro. Gostaria de receber mais informações sobre o evento.')}`} target="_blank" rel="noreferrer">Falar no WhatsApp</a>
             : <span className="form-note">O canal de WhatsApp será disponibilizado em breve.</span>}
           <button className="button button-ghost" type="button" onClick={downloadCalendar}>Adicionar ao calendário</button>
           <button className="button button-ghost" type="button" onClick={shareEvent}>Convidar alguém</button>
@@ -194,7 +194,7 @@ export function RegistrationForm() {
     return (
       <div className="qualification" aria-live="polite">
         <p className="eyebrow">Etapa opcional</p>
-        <h3>O que você procura no FeirAÇO?</h3>
+        <h3>O que você procura no FeirAço?</h3>
         <p>Essas respostas ajudam nossa equipe a preparar um atendimento mais relevante.</p>
         <label className="field-label" htmlFor="profile">Qual é o seu perfil?</label>
         <select id="profile" value={profile} onChange={(event) => setProfile(event.target.value)}>
@@ -220,7 +220,7 @@ export function RegistrationForm() {
     <form onSubmit={submitBasic} className="registration-form">
       <div className="form-heading">
         <p className="eyebrow">Inscrição gratuita</p>
-        <h2>Garanta seu acesso ao 3º FeirAÇO</h2>
+        <h2>Garanta seu acesso ao 3º FeirAço</h2>
         <p>Receba novidades, localização e lembretes diretamente no WhatsApp.</p>
       </div>
       <div className="fields-grid">
@@ -241,7 +241,7 @@ export function RegistrationForm() {
       <TurnstileField onToken={setTurnstileToken} />
       <label className="consent"><input type="checkbox" name="consent" required /><span>Concordo em receber informações do Grupo ABR pelo WhatsApp. Posso cancelar a qualquer momento. Consulte a <a href="/privacidade" target="_blank">Política de Privacidade</a>.</span></label>
       {message && <p className="form-error" role="alert">{message}</p>}
-      <button className="button button-primary button-wide" type="submit" disabled={loading}>{loading ? 'Registrando...' : 'Quero participar do FeirAÇO'}</button>
+      <button className="button button-primary button-wide" type="submit" disabled={loading}>{loading ? 'Registrando...' : 'Quero participar do FeirAço'}</button>
       <small>Cadastro rápido. Leva menos de 30 segundos.</small>
     </form>
   );

@@ -26,6 +26,8 @@ export function TurnstileField({ onToken }: { onToken: (token: string) => void }
         callback: onToken,
         'expired-callback': () => onToken(''),
         'error-callback': () => onToken(''),
+        appearance: 'interaction-only',
+        size: 'invisible',
         theme: 'light',
         language: 'pt-BR',
       });
