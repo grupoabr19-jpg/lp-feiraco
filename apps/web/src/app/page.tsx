@@ -68,7 +68,7 @@ export default function Home() {
         <div className="container event-film-grid">
           <div className="event-film-copy">
             <p className="eyebrow">FeirAÇO em movimento</p>
-            <h2 id="event-film-title">Um encontro feito para aproximar quem precisa de aço de quem entende do assunto.</h2>
+            <h2 id="event-film-title">Um encontro criado para conectar quem busca soluções em aço com quem realmente entende do assunto!</h2>
             <p>Veja um pouco da energia do FeirAÇO e prepare-se para uma manhã de produtos, atendimento e novas conexões com o Grupo ABR.</p>
             <a className="button button-primary" href="#inscricao">Quero participar</a>
           </div>
