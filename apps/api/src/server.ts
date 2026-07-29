@@ -21,6 +21,7 @@ const leadSchema = z.object({
   name: z.string().trim().min(2).max(120),
   phone: z.string().trim().min(10).max(30),
   city: z.string().trim().min(2).max(100),
+  profile: z.string().trim().min(2).max(120),
   consent: z.literal(true),
   turnstileToken: z.string().optional(),
   honeypot: z.string().max(0).optional().default(''),
@@ -98,17 +99,18 @@ app.post('/api/v1/leads', { config: { rateLimit: { max: 8, timeWindow: '10 minut
 
   const query = `
     INSERT INTO feiraco_leads (
-      name, phone, phone_e164, city, consent, consent_at, status, source,
+      name, phone, phone_e164, city, profile, consent, consent_at, status, source,
       utm_source, utm_medium, utm_campaign, utm_content, utm_term,
       referrer, landing_page_url, user_agent, ip_hash
     ) VALUES (
-      $1, $2, $3, $4, TRUE, NOW(), 'registered', $5,
-      $6, $7, $8, $9, $10, $11, $12, $13, $14
+      $1, $2, $3, $4, $5, TRUE, NOW(), 'registered', $6,
+      $7, $8, $9, $10, $11, $12, $13, $14, $15
     )
     ON CONFLICT (phone_e164) DO UPDATE SET
       name = EXCLUDED.name,
       phone = EXCLUDED.phone,
       city = EXCLUDED.city,
+      profile = EXCLUDED.profile,
       consent = TRUE,
       consent_at = NOW(),
       source = EXCLUDED.source,
@@ -130,6 +132,7 @@ app.post('/api/v1/leads', { config: { rateLimit: { max: 8, timeWindow: '10 minut
     payload.phone,
     phoneE164,
     payload.city,
+    payload.profile,
     payload.source,
     payload.utmSource ?? null,
     payload.utmMedium ?? null,

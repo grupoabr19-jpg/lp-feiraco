@@ -5,12 +5,13 @@ import { event as eventConfig } from '@/config/event';
 import { TurnstileField } from './TurnstileField';
 
 const profiles = [
-  'Estou construindo ou reformando',
-  'Serralheiro ou profissional autônomo',
-  'Construtora ou empreiteira',
-  'Indústria',
-  'Loja ou revenda',
-  'Produtor rural',
+  'Cliente final — construindo ou reformando',
+  'Profissional — serralheiro',
+  'Profissional — construtor ou empreiteiro',
+  'Profissional — estruturista',
+  'Profissional — revendedor',
+  'Profissional — produtor rural',
+  'Profissional — indústria',
   'Outro',
 ];
 
@@ -121,6 +122,7 @@ export function RegistrationForm() {
           name: form.get('name'),
           phone: form.get('phone'),
           city: form.get('city'),
+          profile: form.get('profile'),
           consent: form.get('consent') === 'on',
           honeypot: form.get('company'),
           source: 'landing-page',
@@ -196,11 +198,6 @@ export function RegistrationForm() {
         <p className="eyebrow">Etapa opcional</p>
         <h3>O que você procura no FeirAço?</h3>
         <p>Essas respostas ajudam nossa equipe a preparar um atendimento mais relevante.</p>
-        <label className="field-label" htmlFor="profile">Qual é o seu perfil?</label>
-        <select id="profile" value={profile} onChange={(event) => setProfile(event.target.value)}>
-          <option value="">Selecione uma opção</option>
-          {profiles.map((item) => <option key={item}>{item}</option>)}
-        </select>
         <span className="field-label">Produtos de interesse</span>
         <div className="choice-grid">
           {interestsList.map((item) => (
@@ -235,6 +232,13 @@ export function RegistrationForm() {
         <label>
           <span>Cidade</span>
           <input name="city" autoComplete="address-level2" placeholder="Em qual cidade você está?" required minLength={2} />
+        </label>
+        <label>
+          <span>Ocupação</span>
+          <select name="profile" value={profile} onChange={(event) => setProfile(event.target.value)} required>
+            <option value="">Selecione uma opção</option>
+            {profiles.map((item) => <option key={item}>{item}</option>)}
+          </select>
         </label>
       </div>
       <label className="honeypot" aria-hidden="true">Empresa<input name="company" tabIndex={-1} autoComplete="off" /></label>
