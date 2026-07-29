@@ -96,8 +96,15 @@ export default function Home() {
             <p>É o encontro do Grupo ABR com profissionais, empresas e pessoas que constroem, produzem, transformam e movimentam nossa região.</p>
             <p>Uma oportunidade para conhecer soluções, conversar diretamente com nossa equipe e descobrir novos caminhos para sua obra ou negócio.</p>
           </div>
-          <div className="photo-composition" aria-label="Espaço reservado para fotografias reais do evento">
-            <div className="photo-main"><span>Imagem real da estrutura</span></div>
+          <div className="photo-composition" aria-label="Fotografias do Grupo ABR e do FeirAÇO">
+            <div className="photo-main">
+              <Image
+                src="/images/estrutura-oficial.webp"
+                alt="Estoque de tubos e perfis na estrutura do Grupo ABR"
+                fill
+                sizes="(max-width: 980px) 100vw, 55vw"
+              />
+            </div>
             <div className="photo-detail"><span>Evento anterior</span></div>
             <div className="date-stamp"><strong>12</strong><span>SET<br />2026</span></div>
           </div>
