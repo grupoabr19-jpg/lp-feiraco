@@ -145,9 +145,9 @@ export default function Home() {
             ['01', 'Serralheiros'],
             ['02', 'Construtores'],
             ['03', 'Empreiteiros'],
-            ['06', 'Produtores rurais'],
-            ['07', 'Estruturistas'],
-            ['08', 'Quem está construindo ou reformando'],
+            ['04', 'Produtores rurais'],
+            ['05', 'Estruturistas'],
+            ['06', 'Quem está construindo ou reformando'],
           ].map(([number, item]) => <span key={number}><b>{number}</b>{item}</span>)}</div>
         </div>
       </section>
