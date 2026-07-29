@@ -24,9 +24,16 @@ export default function PrivacyPage() {
           <p>Os dados são tratados pelo Grupo ABR e por fornecedores técnicos necessários à operação da campanha. Eles serão mantidos pelo período compatível com essas finalidades e com as obrigações legais aplicáveis.</p>
 
           <h2>Seus direitos</h2>
-          <p>Você pode solicitar confirmação do tratamento, acesso, correção ou exclusão dos seus dados e retirar o consentimento. O canal oficial para essas solicitações será informado junto aos dados de contato definitivos da campanha.</p>
+          <p>Você pode solicitar confirmação do tratamento, acesso, correção ou exclusão dos seus dados e retirar o consentimento. Entre em contato pelo e-mail <a href="mailto:grupoabr@grupoabr.com.br">grupoabr@grupoabr.com.br</a> ou pelos telefones <a href="tel:+553530429920">(35) 3042-9920</a> e <a href="tel:+553534313054">(35) 3431-3054</a>.</p>
 
-          <p><strong>Última atualização:</strong> 28 de julho de 2026.</p>
+          <h2>Documentos oficiais</h2>
+          <ul>
+            <li><a href="https://grupoabr.com.br/wp-content/uploads/2022/05/Politica-de-privacidade.pdf" target="_blank" rel="noreferrer">Política de Privacidade e Proteção de Dados</a></li>
+            <li><a href="https://grupoabr.com.br/wp-content/uploads/2022/05/Politica-de-cookies.pdf" target="_blank" rel="noreferrer">Política de Cookies</a></li>
+            <li><a href="https://grupoabr.com.br/wp-content/uploads/2022/05/Politica-de-tratamento-de-dados-pessoais.pdf" target="_blank" rel="noreferrer">Política de Tratamento de Dados Pessoais</a></li>
+          </ul>
+
+          <p><strong>Última atualização desta página:</strong> 29 de julho de 2026.</p>
           <a className="button button-primary" href="/">Voltar para o evento</a>
         </article>
       </div>

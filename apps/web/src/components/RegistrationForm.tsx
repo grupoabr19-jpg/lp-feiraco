@@ -15,8 +15,7 @@ const profiles = [
 ];
 
 const interestsList = [
-  'Telhas', 'Tubos e metalons', 'Perfis estruturais', 'Vergalhões',
-  'Chapas e bobinas', 'Malhas e treliças', 'Laminados', 'Vigas W e I',
+  'Telhas', 'Bobinas', 'Tubos e metalons', 'Perfis',
   'Quero conhecer as oportunidades',
 ];
 

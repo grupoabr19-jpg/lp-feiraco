@@ -6,13 +6,9 @@ import { event } from '@/config/event';
 
 const products = [
   ['Telhas', 'Coberturas para diferentes projetos e necessidades.', 'telhas'],
+  ['Bobinas', 'Matéria-prima versátil para diferentes processos e aplicações.', 'bobinas'],
   ['Tubos e metalons', 'Soluções versáteis para estruturas e serralheria.', 'tubos'],
-  ['Perfis estruturais', 'Resistência e precisão para projetos exigentes.', 'perfis'],
-  ['Vergalhões', 'Base segura para obras e estruturas de concreto.', 'vergalhoes'],
-  ['Chapas e bobinas', 'Matéria-prima para transformar boas ideias em produção.', 'chapas'],
-  ['Malhas e treliças', 'Produtividade e padronização para a construção.', 'malhas'],
-  ['Laminados', 'Soluções para aplicações industriais e comerciais.', 'laminados'],
-  ['Vigas W e I', 'Desempenho estrutural para projetos de maior porte.', 'vigas'],
+  ['Perfis', 'Resistência e precisão para projetos estruturais.', 'perfis'],
 ];
 
 const faqs = [
@@ -153,7 +149,17 @@ export default function Home() {
 
       <section className="final-cta"><div className="container"><p className="eyebrow light">12 de setembro de 2026</p><h2>Nosso próximo grande negócio pode começar com um encontro.</h2><p>Garanta sua participação e receba as informações oficiais do 3º FeirAÇO.</p><a className="button button-primary" href="#inscricao">Garantir minha participação</a></div></section>
 
-      <footer><div className="container footer-grid"><div className="brand"><Image className="brand-logo footer-logo" src="/images/logo-grupo-abr-branca.png" width={473} height={274} alt="Grupo ABR — Seu Parceiraço" /></div><p>3º FeirAÇO<br />12 de setembro de 2026, das 8h às 12h.</p><p>Uma realização<br /><strong>Grupo ABR</strong></p></div></footer>
+      <footer>
+        <div className="container footer-grid">
+          <div className="brand"><Image className="brand-logo footer-logo" src="/images/logo-grupo-abr-branca.png" width={473} height={274} alt="Grupo ABR — Seu Parceiraço" /></div>
+          <p>3º FeirAÇO<br />12 de setembro de 2026, das 8h às 12h.</p>
+          <div className="footer-contact">
+            <a href="mailto:grupoabr@grupoabr.com.br">grupoabr@grupoabr.com.br</a>
+            <span>(35) 3042-9920 | (35) 3431-3054</span>
+            <a href="/privacidade">Privacidade e proteção de dados</a>
+          </div>
+        </div>
+      </footer>
       <MobileStickyCta />
     </main>
   );
