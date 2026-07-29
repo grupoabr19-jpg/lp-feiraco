@@ -25,7 +25,7 @@ services:
     plan: free
     rootDir: .
     buildCommand: corepack enable && pnpm install --frozen-lockfile && pnpm --filter @feiraco/api build
-    startCommand: pnpm --filter @feiraco/api start
+    startCommand: pnpm --filter @feiraco/api migrate && pnpm --filter @feiraco/api start
     healthCheckPath: /api/v1/health
     envVars:
       - key: NODE_VERSION
