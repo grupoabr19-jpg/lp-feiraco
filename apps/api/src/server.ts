@@ -1,5 +1,6 @@
 import 'dotenv/config';
 import crypto from 'node:crypto';
+import { readFile } from 'node:fs/promises';
 import Fastify from 'fastify';
 import cors from '@fastify/cors';
 import helmet from '@fastify/helmet';
@@ -202,4 +203,7 @@ app.setErrorHandler((error, _request, reply) => {
 });
 
 const port = Number(process.env.PORT ?? 3333);
+const schemaUrl = new URL('../../../database/schema.sql', import.meta.url);
+const schema = await readFile(schemaUrl, 'utf8');
+await db.query(schema);
 await app.listen({ port, host: '0.0.0.0' });
