@@ -2,6 +2,7 @@ services:
   - type: web
     name: feiraco-web
     runtime: node
+    plan: free
     rootDir: .
     buildCommand: corepack enable && pnpm install --frozen-lockfile && pnpm --filter @feiraco/web build
     startCommand: pnpm --filter @feiraco/web start
@@ -21,6 +22,7 @@ services:
   - type: web
     name: feiraco-api
     runtime: node
+    plan: free
     rootDir: .
     buildCommand: corepack enable && pnpm install --frozen-lockfile && pnpm --filter @feiraco/api build
     startCommand: pnpm --filter @feiraco/api start
