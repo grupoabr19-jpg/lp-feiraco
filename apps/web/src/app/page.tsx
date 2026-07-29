@@ -46,11 +46,15 @@ export default function Home() {
               <a className="button button-outline" href="#sobre">Conhecer o evento</a>
             </div>
           </div>
-          <aside className="hero-card">
-            <span className="hero-number">03</span>
-            <p>Uma edição construída para aproximar quem fornece de quem faz acontecer.</p>
-            <div className="steel-line" />
-            <strong>Seu Parceiraço</strong>
+          <aside className="hero-edition-art" aria-label="Terceira edição do FeirAÇO">
+            <Image
+              src="/images/terceira-edicao.png"
+              alt=""
+              width={649}
+              height={961}
+              priority
+            />
+            <strong>Terceira edição</strong>
           </aside>
         </div>
       </section>
