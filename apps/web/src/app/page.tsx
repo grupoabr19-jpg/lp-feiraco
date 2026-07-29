@@ -138,7 +138,14 @@ export default function Home() {
 
       <section className="section institution">
         <div className="container split-layout reverse">
-          <div className="institution-image"><span>Fotografia aérea oficial</span></div>
+          <div className="institution-image">
+            <Image
+              src="/images/foto-aerea-oficial.webp"
+              alt="Vista aérea da estrutura do Grupo ABR"
+              fill
+              sizes="(max-width: 980px) 100vw, 55vw"
+            />
+          </div>
           <div className="section-copy"><p className="eyebrow">Seu Parceiraço</p><h2>Tradição, estrutura e compromisso com quem faz.</h2><p>Desde 2008, o Grupo ABR fornece soluções em aço, unindo produtos de qualidade, atendimento especializado e agilidade.</p><div className="fact-row"><strong>Desde 2008</strong><span>Estrutura industrial</span><span>Equipe especializada</span></div></div>
         </div>
       </section>
