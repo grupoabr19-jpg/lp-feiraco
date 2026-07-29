@@ -106,7 +106,14 @@ export default function Home() {
                 sizes="(max-width: 980px) 100vw, 55vw"
               />
             </div>
-            <div className="photo-detail"><span>Evento anterior</span></div>
+            <div className="photo-detail">
+              <Image
+                src="/images/evento-anterior-oficial.webp"
+                alt="Equipe do Grupo ABR atendendo visitantes em uma edição anterior do FeirAÇO"
+                fill
+                sizes="(max-width: 620px) 62vw, 26vw"
+              />
+            </div>
             <div className="date-stamp"><strong>12</strong><span>SET<br />2026</span></div>
           </div>
         </div>
