@@ -74,6 +74,26 @@ async function validateTurnstile(token: string | undefined, ip: string): Promise
 
 app.get('/api/v1/health', async () => ({ status: 'ok' }));
 
+app.get('/api/v1/db-health', async (_request, reply) => {
+  try {
+    const result = await db.query<{ table_ready: boolean }>(
+      `SELECT to_regclass('public.feiraco_leads') IS NOT NULL AS table_ready`,
+    );
+    const tableReady = result.rows[0]?.table_ready === true;
+    return reply.status(tableReady ? 200 : 503).send({
+      status: tableReady ? 'ok' : 'error',
+      database: 'connected',
+      table: tableReady ? 'ready' : 'missing',
+    });
+  } catch {
+    return reply.status(503).send({
+      status: 'error',
+      database: 'unavailable',
+      table: 'unknown',
+    });
+  }
+});
+
 app.post('/api/v1/leads', { config: { rateLimit: { max: 8, timeWindow: '10 minutes' } } }, async (request, reply) => {
   const parsed = leadSchema.safeParse(request.body);
   if (!parsed.success) {
