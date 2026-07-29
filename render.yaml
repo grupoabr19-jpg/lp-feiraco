@@ -14,7 +14,7 @@ services:
       - key: NEXT_PUBLIC_SITE_URL
         sync: false
       - key: NEXT_PUBLIC_WHATSAPP_NUMBER
-        sync: false
+        value: 553597709232
       - key: NEXT_PUBLIC_TURNSTILE_SITE_KEY
         sync: false
 
