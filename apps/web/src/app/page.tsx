@@ -12,6 +12,7 @@ const products = [
 ];
 
 const faqs = [
+  ['Onde acontecerá o FeirAÇO?', `Na sede do ${event.location}: ${event.address}.`],
   ['Preciso me cadastrar?', 'O cadastro é recomendado para receber localização, informações confirmadas e lembretes do evento.'],
   ['A participação é gratuita?', 'Esta informação será publicada assim que houver confirmação oficial da organização.'],
   ['Posso solicitar orçamento no evento?', 'Sim. A equipe estará preparada para entender sua necessidade e orientar sobre produtos e soluções.'],
@@ -34,12 +35,12 @@ export default function Home() {
         <div className="hero-grid container">
           <div className="hero-content">
             <div className="edition-chip"><span>3º</span> FeirAÇO Grupo ABR</div>
-            <h1>O aço que movimenta seus projetos. <em>As oportunidades que aproximam negócios.</em></h1>
+            <h1>O Aço que estrutura seus projetos. <em>Oportunidades que aproximam negócios</em></h1>
             <p>No dia 12 de setembro, o Grupo ABR abre as portas para uma manhã de produtos, atendimento especializado e novas conexões.</p>
             <div className="event-data">
               <div><small>Quando</small><strong>{event.dateLabel}</strong></div>
               <div><small>Horário</small><strong>Das 8h às 12h</strong></div>
-              <div><small>Onde</small><strong>{event.location}</strong></div>
+              <div><small>Onde</small><strong>{event.location}</strong><span className="event-address">{event.address}</span></div>
             </div>
             <div className="hero-actions">
               <a className="button button-primary" href="#inscricao">Garantir minha participação</a>

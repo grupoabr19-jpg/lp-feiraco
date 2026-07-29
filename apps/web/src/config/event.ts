@@ -4,6 +4,6 @@ export const event = {
   dateISO: '2026-09-12',
   startTime: '08:00',
   endTime: '12:00',
-  location: '[LOCAL A CONFIRMAR]',
-  address: '[ENDEREÇO A CONFIRMAR]',
+  location: 'Grupo ABR',
+  address: 'Rua João Simões de Carvalho, 201-A, Bloco B, Bairro São Miguel, Cambuí–MG, CEP 37.600-000',
 } as const;

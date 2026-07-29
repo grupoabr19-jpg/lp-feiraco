@@ -176,7 +176,7 @@ export function RegistrationForm() {
         <p className="eyebrow">Inscrição registrada</p>
         <h3>Sua presença já entrou no radar.</h3>
         <p>Salve a data: sábado, 12 de setembro, das 8h às 12h.</p>
-        <p><strong>Local:</strong> será informado assim que confirmado pela organização.</p>
+        <p><strong>Local:</strong> {eventConfig.location}, {eventConfig.address}.</p>
         {message && <p className="form-note" role="status">{message}</p>}
         <div className="success-actions">
           {whatsappNumber
