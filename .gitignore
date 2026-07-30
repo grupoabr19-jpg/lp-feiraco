@@ -12,3 +12,4 @@ coverage
 .tools
 .reference-abr
 assets
+*.gsheet
