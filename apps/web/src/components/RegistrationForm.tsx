@@ -85,25 +85,26 @@ export function RegistrationForm() {
     setMessage('Convite copiado. Agora é só enviar para quem você quiser.');
   }
 
-  function downloadCalendar() {
-    const content = [
-      'BEGIN:VCALENDAR',
-      'VERSION:2.0',
-      'PRODID:-//Grupo ABR//FeirACO//PT-BR',
-      'BEGIN:VEVENT',
-      `DTSTART;TZID=America/Sao_Paulo:${eventConfig.dateISO.replaceAll('-', '')}T${eventConfig.startTime.replace(':', '')}00`,
-      `DTEND;TZID=America/Sao_Paulo:${eventConfig.dateISO.replaceAll('-', '')}T${eventConfig.endTime.replace(':', '')}00`,
-      `SUMMARY:${eventConfig.name}`,
-      'DESCRIPTION:Evento presencial do Grupo ABR. A localização será comunicada após a confirmação oficial.',
-      'END:VEVENT',
-      'END:VCALENDAR',
-    ].join('\r\n');
-    const url = URL.createObjectURL(new Blob([content], { type: 'text/calendar;charset=utf-8' }));
-    const anchor = document.createElement('a');
-    anchor.href = url;
-    anchor.download = '3-feiraco-grupo-abr.ics';
-    anchor.click();
-    URL.revokeObjectURL(url);
+  function addToGoogleCalendar() {
+    const compactDate = eventConfig.dateISO.replaceAll('-', '');
+    const compactStartTime = eventConfig.startTime.replace(':', '');
+    const compactEndTime = eventConfig.endTime.replace(':', '');
+    const params = new URLSearchParams({
+      action: 'TEMPLATE',
+      text: eventConfig.name,
+      dates: `${compactDate}T${compactStartTime}00/${compactDate}T${compactEndTime}00`,
+      ctz: 'America/Sao_Paulo',
+      details: `Evento presencial do Grupo ABR.\n\nMais informações: ${window.location.origin}`,
+      location: `${eventConfig.location}, ${eventConfig.address}`,
+    });
+    const calendarUrl = `https://calendar.google.com/calendar/render?${params.toString()}`;
+    const calendarWindow = window.open(calendarUrl, '_blank');
+
+    if (calendarWindow) {
+      calendarWindow.opener = null;
+    } else {
+      window.location.assign(calendarUrl);
+    }
   }
 
   async function submitBasic(event: FormEvent<HTMLFormElement>) {
@@ -181,7 +182,7 @@ export function RegistrationForm() {
           {whatsappNumber
             ? <a className="button button-primary" href={`https://wa.me/${whatsappNumber}?text=${encodeURIComponent('Olá! Acabei de me cadastrar para participar do 3º FeirAço Grupo ABR, no dia 12 de setembro. Gostaria de receber mais informações sobre o evento.')}`} target="_blank" rel="noreferrer">Falar no WhatsApp</a>
             : <span className="form-note">O canal de WhatsApp será disponibilizado em breve.</span>}
-          <button className="button button-ghost" type="button" onClick={downloadCalendar}>Adicionar ao calendário</button>
+          <button className="button button-ghost" type="button" onClick={addToGoogleCalendar}>Adicionar ao Google Calendar</button>
           <button className="button button-ghost" type="button" onClick={shareEvent}>Convidar alguém</button>
           <a className="text-button" href="#sobre">Voltar ao site</a>
         </div>

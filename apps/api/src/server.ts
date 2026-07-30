@@ -177,6 +177,31 @@ app.patch('/api/v1/leads/:publicId/qualification', async (request, reply) => {
   return { success: true, status: 'qualified' };
 });
 
+app.get('/api/v1/admin/leads/export', async (request, reply) => {
+  const authorization = request.headers.authorization;
+  const configuredToken = process.env.LEADS_EXPORT_TOKEN;
+
+  if (!configuredToken || authorization !== `Bearer ${configuredToken}`) {
+    return reply.status(401).send({ success: false, message: 'Não autorizado.' });
+  }
+
+  const result = await db.query(
+    `SELECT
+       public_id, created_at, updated_at, name, phone, city, profile, interests,
+       status, source, utm_source, utm_medium, utm_campaign, utm_content, utm_term,
+       consent, consent_at, attendance_confirmed, attended, commercial_contact,
+       quote_requested, sale_completed, notes
+     FROM feiraco_leads
+     ORDER BY created_at DESC`,
+  );
+
+  return {
+    success: true,
+    exportedAt: new Date().toISOString(),
+    leads: result.rows,
+  };
+});
+
 app.setErrorHandler((error, _request, reply) => {
   app.log.error(error);
   reply.status(500).send({ success: false, message: 'Ocorreu um erro. Tente novamente.' });

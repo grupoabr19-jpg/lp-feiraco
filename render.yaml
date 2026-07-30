@@ -36,3 +36,5 @@ services:
         sync: false
       - key: IP_HASH_SALT
         generateValue: true
+      - key: LEADS_EXPORT_TOKEN
+        sync: false
