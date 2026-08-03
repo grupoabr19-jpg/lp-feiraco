@@ -1,4 +1,4 @@
-const SPREADSHEET_ID = '1wDpQCail3W3f8rFwq1zFNw4XgZ7-gnDXOwacHrDX-TY';
+const SPREADSHEET_ID = '1Qdi5ISO5LXt1M9PRk4m2holWZEBNlyeYaH1b_-jjDHA';
 const SHEET_NAME = 'Leads';
 
 function syncLeads() {

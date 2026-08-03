@@ -2,7 +2,7 @@
 
 Planilha de destino:
 
-`https://docs.google.com/spreadsheets/d/1wDpQCail3W3f8rFwq1zFNw4XgZ7-gnDXOwacHrDX-TY/edit`
+`https://docs.google.com/spreadsheets/d/1Qdi5ISO5LXt1M9PRk4m2holWZEBNlyeYaH1b_-jjDHA/edit`
 
 ## Configuração
 
