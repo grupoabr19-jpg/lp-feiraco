@@ -34,6 +34,16 @@ export function RegistrationForm() {
   const [campaign, setCampaign] = useState<Record<string, string | null>>({});
 
   useEffect(() => {
+    const controller = new AbortController();
+    void fetch(`${apiUrl}/api/v1/health`, {
+      cache: 'no-store',
+      signal: controller.signal,
+    }).catch(() => undefined);
+
+    return () => controller.abort();
+  }, [apiUrl]);
+
+  useEffect(() => {
     const params = new URLSearchParams(window.location.search);
     setCampaign({
       utmSource: params.get('utm_source'),

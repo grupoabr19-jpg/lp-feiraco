@@ -13,8 +13,8 @@ Planilha de destino:
    - `FEIRACO_API_URL`: URL pública do serviço `feiraco-api`, sem barra final.
    - `LEADS_EXPORT_TOKEN`: a mesma chave configurada no Render.
 4. No editor do Apps Script, execute `syncLeads` uma vez e autorize o acesso.
-5. Execute `createScheduledTriggers` uma vez para criar as atualizações das
-   8h, 12h, 15h e 17h no fuso de São Paulo.
+5. Execute `createScheduledTriggers` uma vez para atualizar a planilha
+   automaticamente a cada cinco minutos.
 
 O script refaz a área de dados a cada sincronização. Assim, atualizações de um
 lead já existente aparecem na planilha sem criar linhas duplicadas.

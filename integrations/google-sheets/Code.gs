@@ -72,15 +72,10 @@ function createScheduledTriggers() {
     .filter((trigger) => trigger.getHandlerFunction() === 'syncLeads')
     .forEach((trigger) => ScriptApp.deleteTrigger(trigger));
 
-  [8, 12, 15, 17].forEach((hour) => {
-    ScriptApp.newTrigger('syncLeads')
-      .timeBased()
-      .atHour(hour)
-      .nearMinute(0)
-      .everyDays(1)
-      .inTimezone('America/Sao_Paulo')
-      .create();
-  });
+  ScriptApp.newTrigger('syncLeads')
+    .timeBased()
+    .everyMinutes(5)
+    .create();
 }
 
 function toDate(value) {
