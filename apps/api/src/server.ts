@@ -204,7 +204,13 @@ app.get('/api/v1/admin/leads/export', async (request, reply) => {
 
 app.setErrorHandler((error, _request, reply) => {
   app.log.error(error);
-  reply.status(500).send({ success: false, message: 'Ocorreu um erro. Tente novamente.' });
+  const statusCode = error.statusCode && error.statusCode >= 400 && error.statusCode < 500
+    ? error.statusCode
+    : 500;
+  reply.status(statusCode).send({
+    success: false,
+    message: statusCode === 500 ? 'Ocorreu um erro. Tente novamente.' : 'Requisição inválida.',
+  });
 });
 
 const port = Number(process.env.PORT ?? 3333);

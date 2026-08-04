@@ -1,0 +1,69 @@
+name: Deploy Oracle VM
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+concurrency:
+  group: feiraco-production
+  cancel-in-progress: false
+
+permissions:
+  contents: read
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    environment: production
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v4
+        with:
+          version: 10.15.0
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: pnpm
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Build
+        env:
+          NEXT_PUBLIC_API_URL: https://api-lp.grupoabr.com.br
+          NEXT_PUBLIC_SITE_URL: https://evento.grupoabr.com.br
+          NEXT_PUBLIC_WHATSAPP_NUMBER: "553597709232"
+        run: pnpm build
+
+      - name: Assemble release
+        run: |
+          mkdir -p release/apps/web/.next release/database
+          cp -a apps/web/.next/standalone/. release/
+          cp -a apps/web/.next/static release/apps/web/.next/static
+          cp -a apps/web/public release/apps/web/public
+          pnpm --filter @feiraco/api deploy --prod release/apps/api
+          cp -a apps/api/dist release/apps/api/dist
+          cp database/schema.sql release/database/schema.sql
+          cp deploy/ecosystem.release.cjs release/ecosystem.config.cjs
+          tar -czf feiraco-release.tar.gz -C release .
+
+      - name: Configure SSH
+        env:
+          SSH_PRIVATE_KEY: ${{ secrets.ORACLE_SSH_PRIVATE_KEY }}
+        run: |
+          install -m 700 -d ~/.ssh
+          printf '%s\n' "$SSH_PRIVATE_KEY" > ~/.ssh/oracle.key
+          chmod 600 ~/.ssh/oracle.key
+          ssh-keyscan -H 163.176.229.197 >> ~/.ssh/known_hosts
+
+      - name: Upload and activate
+        run: |
+          scp -i ~/.ssh/oracle.key feiraco-release.tar.gz opc@163.176.229.197:/tmp/feiraco-${GITHUB_SHA}.tar.gz
+          scp -i ~/.ssh/oracle.key deploy/activate-release.sh opc@163.176.229.197:/tmp/activate-feiraco.sh
+          ssh -i ~/.ssh/oracle.key opc@163.176.229.197 "chmod 700 /tmp/activate-feiraco.sh && /tmp/activate-feiraco.sh /tmp/feiraco-${GITHUB_SHA}.tar.gz ${GITHUB_SHA} && rm -f /tmp/activate-feiraco.sh"

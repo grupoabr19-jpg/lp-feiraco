@@ -6,18 +6,18 @@ Planilha de destino:
 
 ## Configuração
 
-1. No Render, configure `LEADS_EXPORT_TOKEN` no serviço `feiraco-api` com uma
-   chave longa e aleatória e faça um novo deploy.
+1. Na VM, mantenha `LEADS_EXPORT_TOKEN` no `.env` da API com uma chave longa e
+   aleatória.
 2. Na planilha, abra **Extensões > Apps Script** e cole o conteúdo de `Code.gs`.
 3. Em **Configurações do projeto > Propriedades do script**, adicione:
-   - `FEIRACO_API_URL`: URL pública do serviço `feiraco-api`, sem barra final.
-   - `LEADS_EXPORT_TOKEN`: a mesma chave configurada no Render.
+   - `FEIRACO_API_URL`: `https://api-lp.grupoabr.com.br`.
+   - `LEADS_EXPORT_TOKEN`: a mesma chave configurada na VM.
 4. No editor do Apps Script, execute `syncLeads` uma vez e autorize o acesso.
 5. Execute `createScheduledTriggers` uma vez para atualizar a planilha
    automaticamente a cada cinco minutos.
 
-O script refaz a área de dados a cada sincronização. Assim, atualizações de um
-lead já existente aparecem na planilha sem criar linhas duplicadas.
+O script preserva as linhas existentes e atualiza ou adiciona leads pelo ID,
+sem criar duplicidades nem apagar o histórico da planilha.
 
 ## Looker Studio
 

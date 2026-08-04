@@ -13,3 +13,5 @@ coverage
 .reference-abr
 assets
 *.gsheet
+maquina virtual/
+deploy/cleanup-deployment-test.sql

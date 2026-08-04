@@ -6,8 +6,8 @@ Monorepo da landing page de captação de leads para o evento presencial de 12 d
 
 - Front-end: Next.js, React e TypeScript
 - Back-end: Fastify e TypeScript
-- Banco: PostgreSQL no Neon
-- Hospedagem: Render
+- Banco: PostgreSQL 16 na VM Oracle
+- Hospedagem: Oracle Linux, Nginx e PM2
 
 ## Estrutura
 
@@ -33,7 +33,7 @@ cp .env.example apps/api/.env
 cp .env.example apps/web/.env.local
 ```
 
-3. Execute `database/schema.sql` no SQL Editor do Neon.
+3. Inicie um PostgreSQL e execute `database/schema.sql`.
 
 4. Rode os dois serviços:
 
@@ -44,9 +44,13 @@ pnpm dev
 - Site: http://localhost:3000
 - API: http://localhost:3333
 
-## Deploy no Render
+## Produção
 
-O arquivo `render.yaml` cria dois Web Services. Cadastre as variáveis sensíveis diretamente no painel do Render. Nunca envie `DATABASE_URL` ao GitHub.
+- Frontend: `https://evento.grupoabr.com.br`
+- API: `https://api-lp.grupoabr.com.br`
+- Servidor: Oracle VM `163.176.229.197`
+
+Os arquivos em `deploy/` preparam PostgreSQL local, Nginx e inicialização do PM2. Nunca envie `.env`, a chave SSH ou `deploy/.env.database` ao GitHub.
 
 ## Mídias
 

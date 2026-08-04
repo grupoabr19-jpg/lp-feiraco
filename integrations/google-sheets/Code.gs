@@ -57,11 +57,22 @@ function syncLeads() {
   ]);
 
   const existingRows = Math.max(sheet.getLastRow() - 1, 0);
+  const mergedById = new Map();
+
+  if (existingRows > 0) {
+    sheet.getRange(2, 1, existingRows, 23).getValues().forEach((row) => {
+      if (row[0]) mergedById.set(String(row[0]), row);
+    });
+  }
+
+  rows.forEach((row) => mergedById.set(String(row[0]), row));
+
+  const mergedRows = Array.from(mergedById.values());
   if (existingRows > 0) {
     sheet.getRange(2, 1, existingRows, 23).clearContent();
   }
-  if (rows.length > 0) {
-    sheet.getRange(2, 1, rows.length, 23).setValues(rows);
+  if (mergedRows.length > 0) {
+    sheet.getRange(2, 1, mergedRows.length, 23).setValues(mergedRows);
   }
 
   properties.setProperty('LAST_SUCCESSFUL_SYNC', new Date().toISOString());
