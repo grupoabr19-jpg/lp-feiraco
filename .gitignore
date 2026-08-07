@@ -5,13 +5,10 @@ dist
 .env
 .env.local
 .env.*.local
+apps/api/.env
+apps/web/.env.local
 !.env.example
 .DS_Store
 *.log
 coverage
-.tools
-.reference-abr
-assets
 *.gsheet
-maquina virtual/
-deploy/cleanup-deployment-test.sql

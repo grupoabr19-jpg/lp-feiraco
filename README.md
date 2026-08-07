@@ -6,8 +6,8 @@ Monorepo da landing page de captação de leads para o evento presencial de 12 d
 
 - Front-end: Next.js, React e TypeScript
 - Back-end: Fastify e TypeScript
-- Banco: PostgreSQL 16 na VM Oracle
-- Hospedagem: Oracle Linux, Nginx e PM2
+- Banco: PostgreSQL no Render
+- Hospedagem: Render Web Services
 
 ## Estrutura
 
@@ -15,6 +15,7 @@ Monorepo da landing page de captação de leads para o evento presencial de 12 d
 apps/web   Landing page e experiência de inscrição
 apps/api   API de leads e qualificação
 database   SQL idempotente para preparar as tabelas
+render.yaml  configura dois serviços no Render
 ```
 
 ## Rodar localmente
