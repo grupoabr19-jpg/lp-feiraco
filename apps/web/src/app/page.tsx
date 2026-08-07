@@ -124,6 +124,27 @@ export default function Home() {
         </div>
       </section>
 
+      <section className="section social-impact" aria-labelledby="social-impact-title">
+        <div className="container social-impact-grid">
+          <div className="social-impact-image">
+            <Image
+              src="/media/Abertura_do_texto_alimentos.jpg"
+              alt="Mãos reunindo alimentos não perecíveis em uma caixa de doação"
+              fill
+              sizes="(max-width: 980px) 100vw, 50vw"
+            />
+            <span><strong>1 kg</strong> de alimento</span>
+          </div>
+          <div className="social-impact-copy">
+            <p className="eyebrow">Aço social Grupo ABR</p>
+            <h2 id="social-impact-title">Um pequeno gesto pode colocar esperança à mesa</h2>
+            <p>O FeirAço também é sobre construir uma comunidade mais forte. Por isso, convidamos cada participante a trazer <strong>1 kg de alimento não perecível</strong>.</p>
+            <p>Cada doação será destinada a uma família que precisa. Quando muitas mãos se unem, um gesto simples se transforma em acolhimento, cuidado e dignidade.</p>
+            <a className="button button-primary" href="#inscricao">Quero fazer parte dessa corrente</a>
+          </div>
+        </div>
+      </section>
+
       <section className="section products-section">
         <div className="container">
           <div className="section-heading-row"><div><p className="eyebrow">Portfólio Grupo ABR</p><h2>Um universo de aço para quem faz acontecer</h2></div><p>Encontre soluções para diferentes etapas, estruturas e necessidades.</p></div>
