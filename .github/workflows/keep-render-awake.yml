@@ -1,23 +1,23 @@
-name: Keep Render API awake
+name: Wake Render services
 
 on:
   schedule:
-    # 07:00-21:59 in America/Sao_Paulo (UTC-3). The final request keeps the
-    # service active until shortly after 22:00.
-    - cron: '*/13 10-23 * * *'
-    - cron: '*/13 0 * * *'
+    # Every 20 minutes from 07:00 through 18:40 in America/Sao_Paulo (UTC-3).
+    - cron: '*/20 10-21 * * *'
+    # Final daily request at 19:00 in America/Sao_Paulo.
+    - cron: '0 22 * * *'
   workflow_dispatch:
 
 concurrency:
-  group: keep-render-api-awake
+  group: wake-render-services
   cancel-in-progress: true
 
 jobs:
-  ping-api:
+  ping-services:
     runs-on: ubuntu-latest
-    timeout-minutes: 3
+    timeout-minutes: 5
     steps:
-      - name: Keep API active during the campaign
+      - name: Wake frontend and API during the campaign
         shell: bash
         run: |
           set -euo pipefail
@@ -30,11 +30,18 @@ jobs:
             exit 0
           fi
 
-          curl \
-            --fail \
-            --silent \
-            --show-error \
-            --retry 2 \
-            --retry-delay 10 \
-            --max-time 90 \
-            https://feiraco-api.onrender.com/api/v1/health
+          for url in \
+            'https://feiraco-web.onrender.com/' \
+            'https://feiraco-api.onrender.com/api/v1/health'
+          do
+            echo "Waking $url"
+            curl \
+              --fail \
+              --silent \
+              --show-error \
+              --retry 2 \
+              --retry-delay 10 \
+              --max-time 90 \
+              "$url" \
+              > /dev/null
+          done
