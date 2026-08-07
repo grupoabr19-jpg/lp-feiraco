@@ -1,4 +1,3 @@
-import 'dotenv/config';
 import crypto from 'node:crypto';
 import { readFile } from 'node:fs/promises';
 import Fastify from 'fastify';
@@ -204,8 +203,13 @@ app.get('/api/v1/admin/leads/export', async (request, reply) => {
 
 app.setErrorHandler((error, _request, reply) => {
   app.log.error(error);
-  const statusCode = error.statusCode && error.statusCode >= 400 && error.statusCode < 500
+  const errorStatusCode = error instanceof Error
+    && 'statusCode' in error
+    && typeof error.statusCode === 'number'
     ? error.statusCode
+    : undefined;
+  const statusCode = errorStatusCode && errorStatusCode >= 400 && errorStatusCode < 500
+    ? errorStatusCode
     : 500;
   reply.status(statusCode).send({
     success: false,

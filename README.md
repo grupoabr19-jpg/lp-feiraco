@@ -27,10 +27,10 @@ corepack enable
 pnpm install
 ```
 
-2. Copie `.env.example` para os serviços:
+2. Copie `.env.example` para a raiz e para o front-end:
 
 ```bash
-cp .env.example apps/api/.env
+cp .env.example .env
 cp .env.example apps/web/.env.local
 ```
 
