@@ -139,7 +139,7 @@ export default function Home() {
             <p className="eyebrow">Aço social Grupo ABR</p>
             <h2 id="social-impact-title">Um pequeno gesto pode colocar esperança à mesa</h2>
             <p>O FeirAço também é sobre construir uma comunidade mais forte. Por isso, convidamos cada participante a trazer <strong>1 kg de alimento não perecível</strong>.</p>
-            <p>Cada doação será destinada a uma família que precisa. Quando muitas mãos se unem, um gesto simples se transforma em acolhimento, cuidado e dignidade.</p>
+            <p>Cada doação será destinada a uma família ou entidade que precise. Quando muitas mãos se unem, um gesto simples se transforma em acolhimento, cuidado e dignidade.</p>
             <a className="button button-primary" href="#inscricao">Quero fazer parte dessa corrente</a>
           </div>
         </div>
