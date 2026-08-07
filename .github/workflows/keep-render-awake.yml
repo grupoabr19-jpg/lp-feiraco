@@ -1,0 +1,40 @@
+name: Keep Render API awake
+
+on:
+  schedule:
+    # 07:00-21:59 in America/Sao_Paulo (UTC-3). The final request keeps the
+    # service active until shortly after 22:00.
+    - cron: '*/13 10-23 * * *'
+    - cron: '*/13 0 * * *'
+  workflow_dispatch:
+
+concurrency:
+  group: keep-render-api-awake
+  cancel-in-progress: true
+
+jobs:
+  ping-api:
+    runs-on: ubuntu-latest
+    timeout-minutes: 3
+    steps:
+      - name: Keep API active during the campaign
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          campaign_end='2026-09-07'
+          today="$(TZ=America/Sao_Paulo date +%F)"
+
+          if [[ "$today" > "$campaign_end" ]]; then
+            echo "Keep-awake campaign ended on $campaign_end."
+            exit 0
+          fi
+
+          curl \
+            --fail \
+            --silent \
+            --show-error \
+            --retry 2 \
+            --retry-delay 10 \
+            --max-time 90 \
+            https://feiraco-api.onrender.com/api/v1/health
