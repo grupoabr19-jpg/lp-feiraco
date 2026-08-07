@@ -7,7 +7,7 @@ import { event } from '@/config/event';
 
 const products = [
   ['Telhas', 'Coberturas para diferentes projetos e necessidades.', 'telhas'],
-  ['Bobinas', 'Matéria-prima versátil para diferentes processos e aplicações.', 'bobinas'],
+  ['Bobininhas', 'Matéria-prima versátil para diferentes processos e aplicações.', 'bobinas'],
   ['Tubos e metalons', 'Soluções versáteis para estruturas e serralheria.', 'tubos'],
   ['Perfis', 'Resistência e precisão para projetos estruturais.', 'perfis'],
 ];
