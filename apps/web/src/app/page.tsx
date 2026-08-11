@@ -14,10 +14,13 @@ const products = [
 
 const faqs = [
   ['Onde acontecerá o FeirAço?', `Na sede do ${event.location}: ${event.address}.`],
-  ['Preciso me cadastrar?', 'O cadastro é recomendado para receber localização, informações confirmadas e lembretes do evento.'],
-  ['A participação é gratuita?', 'Esta informação será publicada assim que houver confirmação oficial da organização.'],
+  ['Preciso me cadastrar?', 'Não. O cadastro não é obrigatório, mas recomendamos que você se cadastre. Assim, conseguimos estimar o número de participantes, planejar melhor a quantidade de café que será servida e ter uma previsão dos alimentos que serão arrecadados.'],
+  ['A participação é gratuita?', 'Sim, a entrada é totalmente gratuita. Incentivamos, porém, a doação de 1 kg de alimento não perecível. Os itens arrecadados serão destinados a uma ação social, com a doação de cestas de alimentos para pessoas em situação de vulnerabilidade ou para uma instituição beneficente, que será definida posteriormente.'],
   ['Posso solicitar orçamento no evento?', 'Sim. A equipe estará preparada para entender sua necessidade e orientar sobre produtos e soluções.'],
-  ['Quais produtos estarão disponíveis?', 'O portfólio e as oportunidades específicas serão divulgados nos canais oficiais do Grupo ABR.'],
+  [
+    'Oportunidades especiais em materiais de estoque',
+    'No FeirAço, você encontra materiais que estão no estoque do Grupo ABR com condições especiais de venda. São produtos que podem apresentar pequenas avarias, marcas ou alterações estéticas decorrentes de armazenamento e movimentação, além dos materiais que estão parados em estoque e que, por isso, serão comercializados com preços diferenciados. É a oportunidade de encontrar aço de qualidade por condições especiais. Importante: as condições, características e disponibilidade dos materiais serão apresentadas no local, de acordo com cada produto.',
+  ],
 ];
 
 export default function Home() {
