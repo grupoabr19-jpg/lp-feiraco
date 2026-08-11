@@ -11,9 +11,9 @@ services:
       - key: NODE_VERSION
         value: 22.16.0
       - key: NEXT_PUBLIC_API_URL
-        sync: false
+        value: https://feiraco-api.onrender.com
       - key: NEXT_PUBLIC_SITE_URL
-        sync: false
+        value: https://feiraco-web.onrender.com
       - key: NEXT_PUBLIC_WHATSAPP_NUMBER
         value: 553597709232
 
