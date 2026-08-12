@@ -6,20 +6,20 @@ import { ViewportVideo } from '@/components/ViewportVideo';
 import { event } from '@/config/event';
 
 const products = [
-  ['Telhas', 'Coberturas para diferentes projetos e necessidades.', 'telhas'],
-  ['Bobininhas', 'Matéria-prima versátil para diferentes processos e aplicações.', 'bobinas'],
-  ['Tubos e metalons', 'Soluções versáteis para estruturas e serralheria.', 'tubos'],
-  ['Perfis', 'Resistência e precisão para projetos estruturais.', 'perfis'],
+  ['Telhas', 'Coberturas para diferentes projetos.', 'telhas'],
+  ['Bobininhas', 'Matéria-prima para diferentes aplicações.', 'bobinas'],
+  ['Tubos e metalons', 'Soluções para estruturas e serralheria.', 'tubos'],
+  ['Perfis', 'Resistência para projetos estruturais.', 'perfis'],
 ];
 
 const faqs = [
   ['Onde acontecerá o FeirAço?', `Na sede do ${event.location}: ${event.address}.`],
-  ['Preciso me cadastrar?', 'Não. O cadastro não é obrigatório, mas recomendamos que você se cadastre. Assim, conseguimos estimar o número de participantes, planejar melhor a quantidade de café que será servida e ter uma previsão dos alimentos que serão arrecadados.'],
-  ['A participação é gratuita?', 'Sim, a entrada é totalmente gratuita. Incentivamos, porém, a doação de 1 kg de alimento não perecível. Os itens arrecadados serão destinados a uma ação social, com a doação de cestas de alimentos para pessoas em situação de vulnerabilidade ou para uma instituição beneficente, que será definida posteriormente.'],
-  ['Posso solicitar orçamento no evento?', 'Sim. A equipe estará preparada para entender sua necessidade e orientar sobre produtos e soluções.'],
+  ['Preciso me credenciar?', 'O credenciamento antecipado é recomendado. Ele agiliza sua chegada e permite receber informações e lembretes do evento pelo WhatsApp.'],
+  ['A participação é gratuita?', 'Sim. A entrada é gratuita e convidamos cada participante a doar 1 kg de alimento não perecível para a ação social do evento.'],
+  ['Posso solicitar orçamento no evento?', 'Sim. Nossa equipe estará disponível para entender sua necessidade e orientar sobre produtos e ofertas.'],
   [
     'Oportunidades especiais em materiais de estoque',
-    'No FeirAço, você encontra materiais que estão no estoque do Grupo ABR com condições especiais de venda. São produtos que podem apresentar pequenas avarias, marcas ou alterações estéticas decorrentes de armazenamento e movimentação, além dos materiais que estão parados em estoque e que, por isso, serão comercializados com preços diferenciados. É a oportunidade de encontrar aço de qualidade por condições especiais. Importante: as condições, características e disponibilidade dos materiais serão apresentadas no local, de acordo com cada produto.',
+    'O FeirAço terá materiais de estoque com preços diferenciados. Alguns podem apresentar marcas ou pequenas alterações estéticas de armazenamento e movimentação. Condições, características e disponibilidade serão informadas no local.',
   ],
 ];
 
@@ -31,7 +31,7 @@ export default function Home() {
           <Image className="brand-logo" src="/images/logo-grupo-abr-branca.png" width={473} height={274} alt="Grupo ABR — Seu Parceiraço" priority />
         </a>
         <div className="header-date"><strong>12 SET</strong><span>8h às 12h</span></div>
-        <a href="#inscricao" className="button button-small">Quero participar</a>
+        <a href="#inscricao" className="button button-small">Credenciamento gratuito</a>
       </header>
 
       <section className="hero" id="top">
@@ -39,15 +39,15 @@ export default function Home() {
         <div className="hero-grid container">
           <div className="hero-content">
             <div className="edition-chip"><span>3º</span> FeirAço Grupo ABR</div>
-            <h1>O Aço que estrutura seus projetos. <em>Oportunidades que aproximam negócios</em></h1>
-            <p>No dia 12 de setembro, o Grupo ABR abre as portas para uma manhã de produtos, atendimento especializado e novas conexões.</p>
+            <h1>Ofertas exclusivas e válidas <em>somente para participantes do evento</em></h1>
+            <p>No dia 12 de setembro, o Grupo ABR abre as portas para uma manhã de ofertas exclusivas.</p>
             <div className="event-data">
               <div><small>Quando</small><strong>{event.dateLabel}</strong></div>
               <div><small>Horário</small><strong>Das 8h às 12h</strong></div>
               <div><small>Onde</small><strong>{event.location}</strong><span className="event-address">{event.address}</span></div>
             </div>
             <div className="hero-actions">
-              <a className="button button-primary" href="#inscricao">Garantir minha participação</a>
+              <a className="button button-primary" href="#inscricao">Fazer meu credenciamento</a>
               <a className="button button-outline" href="#sobre">Conhecer o evento</a>
             </div>
           </div>
@@ -71,10 +71,10 @@ export default function Home() {
       <section className="section event-film" aria-labelledby="event-film-title">
         <div className="container event-film-grid">
           <div className="event-film-copy">
-            <p className="eyebrow">FeirAço em movimento</p>
-            <h2 id="event-film-title">Um encontro criado para conectar quem busca soluções em aço com quem realmente entende do assunto!</h2>
-            <p>Veja um pouco da energia do FeirAço e prepare-se para uma manhã de produtos, atendimento e novas conexões com o Grupo ABR.</p>
-            <a className="button button-primary" href="#inscricao">Quero participar</a>
+            <p className="eyebrow">O sucesso continua</p>
+            <h2 id="event-film-title">Duas edições de sucesso. A terceira será ainda melhor.</h2>
+            <p>As duas primeiras edições reuniram clientes, parceiros e nossa equipe em torno de bons negócios. Agora, o 3º FeirAço chega com mais ofertas exclusivas e novas oportunidades para quem participar.</p>
+            <a className="button button-primary" href="#inscricao">Fazer meu credenciamento</a>
           </div>
           <div className="event-film-frame">
             <ViewportVideo />
@@ -86,10 +86,10 @@ export default function Home() {
       <section className="section about" id="sobre">
         <div className="container split-layout">
           <div className="section-copy">
-            <p className="eyebrow">Uma manhã para estar mais perto</p>
-            <h2>O FeirAço conecta projetos, pessoas e oportunidades</h2>
-            <p>É o encontro do Grupo ABR com profissionais, empresas e pessoas que constroem, produzem, transformam e movimentam nossa região.</p>
-            <p>Uma oportunidade para conhecer soluções, conversar diretamente com nossa equipe e descobrir novos caminhos para sua obra ou negócio.</p>
+            <p className="eyebrow">O 3º FeirAço</p>
+            <h2>Uma manhã para aproveitar ofertas e fazer bons negócios</h2>
+            <p>Conheça materiais disponíveis, tire dúvidas com nossa equipe e encontre condições válidas somente durante o evento.</p>
+            <p>Faça seu credenciamento e venha preparado para aproveitar.</p>
           </div>
           <div className="photo-composition" aria-label="Fotografias do Grupo ABR e do FeirAço">
             <div className="photo-main">
@@ -116,12 +116,12 @@ export default function Home() {
       <section className="section benefits">
         <div className="container">
           <p className="eyebrow">Por que participar</p>
-          <h2 className="section-title">O que espera por você</h2>
+          <h2 className="section-title">Motivos para se credenciar</h2>
           <div className="benefit-grid">
             {[
-              ['01', 'Soluções em aço', 'Produtos e aplicações para construção, serralheria, indústria, comércio e agronegócio.'],
-              ['02', 'Atendimento Humanizado', 'Profissionais preparados para entender sua necessidade e orientar suas escolhas.'],
-              ['04', 'Relacionamento', 'Conheça a estrutura do Grupo ABR e abra espaço para novas possibilidades.'],
+              ['01', 'Ofertas exclusivas', 'Condições especiais em materiais disponíveis no evento.'],
+              ['02', 'Atendimento direto', 'Converse com quem entende de aço e encontre a melhor opção.'],
+              ['03', 'Novas oportunidades', 'Conheça produtos e negocie diretamente com o Grupo ABR.'],
             ].map(([number, title, text]) => <article className="benefit-card" key={number}><span>{number}</span><h3>{title}</h3><p>{text}</p></article>)}
           </div>
         </div>
@@ -140,17 +140,16 @@ export default function Home() {
           </div>
           <div className="social-impact-copy">
             <p className="eyebrow">Aço social Grupo ABR</p>
-            <h2 id="social-impact-title">Um pequeno gesto pode colocar esperança à mesa</h2>
-            <p>O FeirAço também é sobre construir uma comunidade mais forte. Por isso, convidamos cada participante a trazer <strong>1 kg de alimento não perecível</strong>.</p>
-            <p>Cada doação será destinada a uma família ou entidade que precise. Quando muitas mãos se unem, um gesto simples se transforma em acolhimento, cuidado e dignidade.</p>
-            <a className="button button-primary" href="#inscricao">Quero fazer parte dessa corrente</a>
+            <h2 id="social-impact-title">Sua participação também faz a diferença</h2>
+            <p>Ao participar, traga <strong>1 kg de alimento não perecível</strong>. As doações serão destinadas a famílias ou entidades que precisam.</p>
+            <a className="button button-primary" href="#inscricao">Credenciar e participar</a>
           </div>
         </div>
       </section>
 
       <section className="section products-section">
         <div className="container">
-          <div className="section-heading-row"><div><p className="eyebrow">Portfólio Grupo ABR</p><h2>Um universo de aço para quem faz acontecer</h2></div><p>Encontre soluções para diferentes etapas, estruturas e necessidades.</p></div>
+          <div className="section-heading-row"><div><p className="eyebrow">Produtos em destaque</p><h2>Encontre o aço que seu projeto precisa</h2></div><p>Confira algumas das linhas que você encontrará no Grupo ABR.</p></div>
           <div className="product-grid">
             {products.map(([name, description, slug]) => (
               <article className={`product-card product-${slug}`} key={name}>
@@ -164,7 +163,7 @@ export default function Home() {
 
       <section className="audience-section">
         <div className="container audience-grid">
-          <div><p className="eyebrow light">Feito para quem faz</p><h2>Se o aço está no seu projeto, o FeirAço é para você</h2><p>Não importa o tamanho da obra ou do negócio. Esta manhã foi pensada para aproximar soluções de necessidades reais.</p><a className="button button-primary" href="#inscricao">Quero participar</a></div>
+          <div><p className="eyebrow light">Feito para quem faz</p><h2>Trabalha com aço ou está construindo? Este evento é para você.</h2><p>Credencie-se gratuitamente e aproveite as ofertas do 3º FeirAço.</p><a className="button button-primary" href="#inscricao">Fazer meu credenciamento</a></div>
           <div className="audience-list">{[
             ['01', 'Serralheiros'],
             ['02', 'Construtores'],
@@ -186,15 +185,15 @@ export default function Home() {
               sizes="(max-width: 980px) 100vw, 55vw"
             />
           </div>
-          <div className="section-copy"><p className="eyebrow">Seu Parceiraço</p><h2>Tradição, estrutura e compromisso com quem faz</h2><p>Desde 2008, o Grupo ABR fornece soluções em aço, unindo produtos de qualidade, atendimento especializado e agilidade.</p><div className="fact-row"><strong>Desde 2008</strong><span>Estrutura industrial</span><span>Equipe especializada</span></div></div>
+          <div className="section-copy"><p className="eyebrow">Quem realiza</p><h2>A confiança de quem entende de aço desde 2008</h2><p>O Grupo ABR une estrutura, variedade e uma equipe preparada para atender seu projeto.</p><div className="fact-row"><strong>Desde 2008</strong><span>Estrutura industrial</span><span>Equipe especializada</span></div></div>
         </div>
       </section>
 
       <section className="section faq-section">
-        <div className="container faq-grid"><div><p className="eyebrow">Dúvidas frequentes</p><h2>Tudo o que você precisa saber antes de chegar</h2></div><div>{faqs.map(([question, answer]) => <details key={question}><summary>{question}<span>+</span></summary><p>{answer}</p></details>)}</div></div>
+        <div className="container faq-grid"><div><p className="eyebrow">Dúvidas frequentes</p><h2>Antes de fazer seu credenciamento</h2></div><div>{faqs.map(([question, answer]) => <details key={question}><summary>{question}<span>+</span></summary><p>{answer}</p></details>)}</div></div>
       </section>
 
-      <section className="final-cta"><div className="container"><p className="eyebrow light">12 de setembro de 2026</p><h2>Nosso próximo grande negócio pode começar com um encontro</h2><a className="button button-primary" href="#inscricao">Garantir minha participação</a></div></section>
+      <section className="final-cta"><div className="container"><p className="eyebrow light">12 de setembro de 2026</p><h2>As ofertas são exclusivas para quem estiver no evento</h2><a className="button button-primary" href="#inscricao">Fazer meu credenciamento gratuito</a></div></section>
 
       <footer>
         <div className="container footer-grid">

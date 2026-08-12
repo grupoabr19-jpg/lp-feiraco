@@ -6,7 +6,7 @@ const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000';
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: '3º FeirAço Grupo ABR | 12 de setembro de 2026',
-  description: 'Participe do 3º FeirAço Grupo ABR. Uma manhã de produtos, atendimento especializado e novas oportunidades.',
+  description: 'Credencie-se gratuitamente para o 3º FeirAço Grupo ABR e aproveite ofertas exclusivas no evento.',
   alternates: { canonical: '/' },
   openGraph: {
     title: '3º FeirAço Grupo ABR',

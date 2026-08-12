@@ -183,8 +183,8 @@ export function RegistrationForm() {
     return (
       <div className="form-success" aria-live="polite">
         <span className="success-mark">✓</span>
-        <p className="eyebrow">Inscrição registrada</p>
-        <h3>Sua presença já entrou no radar</h3>
+        <p className="eyebrow">Credenciamento confirmado</p>
+        <h3>Sua presença está confirmada</h3>
         <p>Salve a data: sábado, 12 de setembro, das 8h às 12h.</p>
         <p><strong>Local:</strong> {eventConfig.location}, {eventConfig.address}.</p>
         {message && <p className="form-note" role="status">{message}</p>}
@@ -214,7 +214,7 @@ export function RegistrationForm() {
         </div>
         {message && <p className="form-error">{message}</p>}
         <div className="form-buttons">
-          <button className="button button-primary" type="button" disabled={loading} onClick={submitQualification}>{loading ? 'Salvando...' : 'Concluir inscrição'}</button>
+          <button className="button button-primary" type="button" disabled={loading} onClick={submitQualification}>{loading ? 'Salvando...' : 'Concluir credenciamento'}</button>
           <button className="text-button" type="button" onClick={() => { sessionStorage.removeItem('feiraco:selected-interest'); setStep('success'); }}>Responder depois</button>
         </div>
       </div>
@@ -224,9 +224,9 @@ export function RegistrationForm() {
   return (
     <form onSubmit={submitBasic} className="registration-form">
       <div className="form-heading">
-        <p className="eyebrow">Inscrição gratuita</p>
-        <h2>Garanta seu acesso ao 3º FeirAço</h2>
-        <p>Receba novidades, localização e lembretes diretamente no WhatsApp.</p>
+        <p className="eyebrow">Credenciamento gratuito</p>
+        <h2>Garanta sua participação no 3º FeirAço</h2>
+        <p>Preencha seus dados e receba as informações do evento pelo WhatsApp.</p>
       </div>
       <div className="fields-grid">
         <label>
@@ -252,7 +252,7 @@ export function RegistrationForm() {
       <label className="honeypot" aria-hidden="true">Empresa<input name="company" tabIndex={-1} autoComplete="off" /></label>
       <label className="consent"><input type="checkbox" name="consent" required /><span>Concordo em receber informações do Grupo ABR pelo WhatsApp. Posso cancelar a qualquer momento. Consulte a <a href="/privacidade" target="_blank">Política de Privacidade</a>.</span></label>
       {message && <p className="form-error" role="alert">{message}</p>}
-      <button className="button button-primary button-wide" type="submit" disabled={loading}>{loading ? 'Registrando...' : 'Quero participar do FeirAço'}</button>
+      <button className="button button-primary button-wide" type="submit" disabled={loading}>{loading ? 'Registrando...' : 'Fazer meu credenciamento'}</button>
       <small>Cadastro rápido. Leva menos de 30 segundos.</small>
     </form>
   );

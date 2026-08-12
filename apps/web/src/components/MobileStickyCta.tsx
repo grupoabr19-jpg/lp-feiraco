@@ -23,7 +23,7 @@ export function MobileStickyCta() {
       aria-hidden={formVisible}
       tabIndex={formVisible ? -1 : undefined}
     >
-      Garantir participação
+      Credenciamento gratuito
     </a>
   );
 }
